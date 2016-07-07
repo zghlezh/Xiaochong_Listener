@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">小虫监控</string>
+    <string name="capture">拍照</string>
+    <string name="photo">照片</string>
+    <string name="photo_auto_take">take photo</string>
+    <string name="video_auto_take">record</string>
+    <string name="save_pic">the photo save to: </string>
+    <string name="title_activity_camera">CameraActivity</string>
+    <string name="title_activity_control">ControlActivity</string>
+</resources>
