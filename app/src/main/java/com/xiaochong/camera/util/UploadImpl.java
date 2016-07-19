@@ -1,7 +1,6 @@
 package com.xiaochong.camera.util;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
@@ -90,8 +89,13 @@ public class UploadImpl {
             params.put("token", "f26bcdee-5293-4d8b-ad58-f6d2879dc1f8");
             //params.put("file", myFile);
             params.put("file", instream);
+            params.put("fileType", type);
+//            String str = doPost("http://115.28.202.110:8888/login", params, "UTF-8");
             AsyncHttpClient client = new AsyncHttpClient();
-            client.post("http://115.28.202.110:8888/user/upload", params, new AsyncHttpResponseHandler() {
+//            JSONObject obj = JSONObject.parseObject(str);
+//            JSONObject data = obj.getJSONObject("data");
+//            final String token = data.getString("token");
+            client.post("http://115.28.202.110:8888/j/upload", params, new AsyncHttpResponseHandler() {
 
                 @Override
                 public void onSuccess(int i, org.apache.http.Header[] headers, byte[] bytes) {
@@ -102,7 +106,16 @@ public class UploadImpl {
 
                 @Override
                 public void onFailure(int i, org.apache.http.Header[] headers, byte[] bytes, Throwable throwable) {
-                    Log.i(TAG, "upload on Failure");
+                   if (headers != null){
+                       Log.i(TAG, "upload on Failure header:"+ headers.toString());
+                   } else {
+                       Log.i(TAG, " headers is null ===================:");
+                   }
+                    if (bytes !=null) {
+                        Log.i(TAG, " and bytes :"+bytes.toString());
+                    } else {
+                        Log.i(TAG, " byte is null ===================:");
+                    }
                     Toast.makeText(mActivity, "upload failed", Toast.LENGTH_SHORT).show();
                 }
             });

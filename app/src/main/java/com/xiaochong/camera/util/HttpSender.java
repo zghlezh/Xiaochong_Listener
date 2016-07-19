@@ -22,17 +22,18 @@ public class HttpSender {
         Log.i(TAG, "start to sendHttp");
         Sender sender = Sender.get();
         sender.setLoggerLevel(Level.FINEST);
-        sender.setDeviceId("5C7B080B4CA863AD2A42905465897381");
-        sender.startWork(1016, "5C7B080B4CA863AD2A42905465897381", new ConnectHandler() {
+        //sender.setDeviceId("5C7B080B4CA863AD2A42905465897381");
+        sender.startWork(new ConnectHandler() {
             @Override
             public void onException(Throwable throwable) {
                 Log.i(TAG, "onException");
             }
 
             @Override
-            public void onMessageReceived(int i, byte[] bytes) {
-                Log.i("qinghao", "receive the i is "+i+" and the bytes is "+bytes.toString());
-                System.out.println("receive the i is "+i+" and the bytes is "+bytes.toString());
+            public void onMessageReceived(byte[] bytes) {
+                String order = new String(bytes);
+                Log.i("qinghao", "receive the order is "+order);
+                int i = Integer.parseInt(order);
                 if (i == 1){
                     mWorkCenter.getPhoto();
                 } else if (i == 2) {
@@ -49,6 +50,7 @@ public class HttpSender {
             @Override
             public void onConnected() {
                 System.out.println("连接成功");
+//                sender.login(token);
             }
 
             @Override
