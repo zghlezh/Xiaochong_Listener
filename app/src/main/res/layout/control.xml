@@ -9,18 +9,4 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="take photo delay time: 3s \n record time: 4s"/>
-
-    <Button
-        android:id="@+id/get_photo"
-        android:text="Take photo and upload"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </Button>
-
-    <Button
-        android:id="@+id/get_video"
-        android:text="record and upload"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </Button>
 </LinearLayout>

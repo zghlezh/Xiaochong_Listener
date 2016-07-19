@@ -17,6 +17,7 @@ import com.xiaochong.camera.module.CameraModule;
 import com.xiaochong.camera.module.PhotoModule;
 import com.xiaochong.camera.module.VideoModule;
 import com.xiaochong.camera.util.CameraUtil;
+import com.xiaochong.camera.util.GetMediaImpl;
 
 public class CameraActivity extends Activity implements
         View.OnClickListener{
@@ -82,11 +83,11 @@ public class CameraActivity extends Activity implements
 
     private void initType() {
         Intent intent = getIntent();
-        mType = intent.getStringExtra(ControlActivity.START_ACTION);
-        if (TextUtils.equals(mType, ControlActivity.GET_PHOTO)) {
+        mType = intent.getStringExtra(GetMediaImpl.START_ACTION);
+        if (TextUtils.equals(mType, GetMediaImpl.GET_PHOTO)) {
             mCurrentModuleIndex = PHOTO_MODULE_INDEX;
-        } else if (TextUtils.equals(mType, ControlActivity.GET_VIDEO)) {
-            mRecordLength = intent.getIntExtra(ControlActivity.GET_VIDEO_LENGTH, RECORD_DEFAULT_LENGTH);
+        } else if (TextUtils.equals(mType, GetMediaImpl.GET_VIDEO)) {
+            mRecordLength = intent.getIntExtra(GetMediaImpl.GET_VIDEO_LENGTH, RECORD_DEFAULT_LENGTH);
             mCurrentModuleIndex = VIDEO_MODULE_INDEX;
         }
         setModuleFromIndex(mCurrentModuleIndex);

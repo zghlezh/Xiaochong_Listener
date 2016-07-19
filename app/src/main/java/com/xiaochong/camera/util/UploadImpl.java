@@ -18,26 +18,31 @@ import java.io.InputStream;
 /**
  * Created by user on 6/8/16.
  */
-public class UploadUtil {
-    public static final String TAG = "UploadUtil";
-    public static final String DCIM =
+public class UploadImpl {
+    public final String TAG = "UploadImpl";
+    public final String DCIM =
             Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).toString();
 
-    public static final String SDCARD =
+    public final String SDCARD =
             Environment.getExternalStorageDirectory().toString();
 
+    public Activity mActivity;
 
-    public static String getFilePath(Context mContext) {
+    public UploadImpl(Activity mActivity) {
+        this.mActivity = mActivity;
+    }
+
+    public String getFilePath() {
         String path = getSDPath();
         if (TextUtils.isEmpty(path)) {
-            path = mContext.getExternalFilesDir(null).toString();
+            path = mActivity.getExternalFilesDir(null).toString();
         }
         Log.i("aaa", "the path is "+path);
         path = path + "/cameralisten.jpg";
         return path;
     }
 
-    public static String getSDPath(){
+    public String getSDPath(){
         File sdDir = null;
         boolean sdCardExist = Environment.getExternalStorageState()
                 .equals(android.os.Environment.MEDIA_MOUNTED);//判断sd卡是否存在
@@ -76,7 +81,7 @@ public class UploadUtil {
 //    }
 
 
-    public static void uploadFile(final Activity mActivity, int type, String path) {
+    public void uploadFile(int type, String path) {
         Log.i(TAG, "===============start to upload type:"+ type +"=================");
         File myFile = new File(path);
         RequestParams params = new RequestParams();

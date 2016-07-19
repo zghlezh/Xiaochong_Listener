@@ -11,16 +11,15 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
-import android.view.Display;
 import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.WindowManager;
 
 import com.xiaochong.camera.CameraActivity;
-import com.xiaochong.camera.ControlActivity;
 import com.xiaochong.camera.PhotoController;
 import com.xiaochong.camera.ui.PhotoUI;
 import com.xiaochong.camera.util.CameraUtil;
+import com.xiaochong.camera.util.GetMediaImpl;
 import com.xiaochong.camera.view.ShutterButton;
 
 import java.io.IOException;
@@ -96,8 +95,8 @@ public class PhotoModule
                     //Toast.makeText(mActivity, mActivity.getText(R.string.save_pic) + mFilePath,
                     //        Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent();
-                    intent.putExtra(ControlActivity.GET_PHOTO_PATH, mFilePath);
-                    mActivity.setResult(ControlActivity.KEY_GET_PHOTO, intent);
+                    intent.putExtra(GetMediaImpl.GET_PHOTO_PATH, mFilePath);
+                    mActivity.setResult(GetMediaImpl.KEY_GET_PHOTO, intent);
                     mActivity.finish();
                 }
             };

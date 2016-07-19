@@ -7,7 +7,7 @@ import java.io.File;
  */
 public interface IGetMedia {
 
-    public String getPhoto();
+    public void getPhoto();
 
-    public String getVideo();
+    public void getVideo();
 }

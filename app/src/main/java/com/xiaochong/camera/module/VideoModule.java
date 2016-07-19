@@ -13,13 +13,12 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.xiaochong.camera.CameraActivity;
-import com.xiaochong.camera.ControlActivity;
 import com.xiaochong.camera.VideoController;
 import com.xiaochong.camera.ui.VideoUI;
 import com.xiaochong.camera.util.CameraUtil;
+import com.xiaochong.camera.util.GetMediaImpl;
 import com.xiaochong.camera.view.ShutterButton;
 
 /**
@@ -486,8 +485,8 @@ public class VideoModule implements
         if (stop) {
             stopVideoRecording();
             Intent intent = new Intent();
-            intent.putExtra(ControlActivity.GET_VIDEO_PATH, mVideoPath);
-            mActivity.setResult(ControlActivity.KEY_GET_VIDEO, intent);
+            intent.putExtra(GetMediaImpl.GET_VIDEO_PATH, mVideoPath);
+            mActivity.setResult(GetMediaImpl.KEY_GET_VIDEO, intent);
             mActivity.finish();
         } else {
             startVideoRecording();
