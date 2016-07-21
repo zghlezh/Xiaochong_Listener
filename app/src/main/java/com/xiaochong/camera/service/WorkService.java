@@ -7,7 +7,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 import com.xiaochong.camera.util.HttpSender;
-import com.xiaochong.camera.util.IGetMedia;
+import com.xiaochong.camera.util.UploadImpl;
 import com.xiaochong.camera.util.WorkCenter;
 
 /**
@@ -55,6 +55,13 @@ public class WorkService extends Service{
             mSender = new HttpSender(workCenter);
         }
         return mSender;
+    }
+
+    public void startLogin() {
+        if (mWorkCenter != null) {
+            Log.i("qinghao", "==============workservice startLogin==============");
+            mWorkCenter.login();
+        }
     }
 
 

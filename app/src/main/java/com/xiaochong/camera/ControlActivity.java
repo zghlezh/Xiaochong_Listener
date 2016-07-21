@@ -28,6 +28,7 @@ public class ControlActivity extends Activity {
             mWorkService = binder.getService();
             mWorkService.setWorkCenter(mWorkCenter);
             binder.startConnection();
+//            mWorkService.startLogin();
         }
         public void onServiceDisconnected(ComponentName name) {
             Log.i(TAG, "onServiceDisconnected");

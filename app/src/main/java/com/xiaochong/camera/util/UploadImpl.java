@@ -79,6 +79,43 @@ public class UploadImpl {
 //        }
 //    }
 
+    public void login() {
+        Log.i(TAG, "===============start to login =====================");
+        RequestParams params = new RequestParams();
+        try {
+            params.put("userName", "ryan");
+            params.put("passwd", "123456");
+            AsyncHttpClient client = new AsyncHttpClient();
+            client.post("http://115.28.202.110:8888/login", params, new AsyncHttpResponseHandler() {
+
+                @Override
+                public void onSuccess(int i, org.apache.http.Header[] headers, byte[] bytes) {
+                    String bytesString = new String(bytes);
+                    Log.i(TAG, "the httpcode is "+i +" and the header is "+
+                            headers.toString()+" and the bytes is "+bytesString);
+                    Toast.makeText(mActivity, "login success", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFailure(int i, org.apache.http.Header[] headers, byte[] bytes, Throwable throwable) {
+                    String failString =  new String(bytes);
+                    if (headers != null){
+                        Log.i(TAG, "login on Failure header:"+ headers.toString());
+                    } else {
+                        Log.i(TAG, " headers is null ===================:");
+                    }
+                    if (bytes !=null) {
+                        Log.i(TAG, " byte string is "+failString);
+                    } else {
+                        Log.i(TAG, " byte is null ===================:");
+                    }
+                    Toast.makeText(mActivity, "login failed", Toast.LENGTH_SHORT).show();
+                }
+            });
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public void uploadFile(int type, String path) {
         Log.i(TAG, "===============start to upload type:"+ type +"=================");
@@ -95,6 +132,7 @@ public class UploadImpl {
 //            JSONObject obj = JSONObject.parseObject(str);
 //            JSONObject data = obj.getJSONObject("data");
 //            final String token = data.getString("token");
+//            http://115.28.202.110:8888/login
             client.post("http://115.28.202.110:8888/j/upload", params, new AsyncHttpResponseHandler() {
 
                 @Override

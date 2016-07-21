@@ -35,4 +35,8 @@ public class WorkCenter {
     public void uploadFile(int type, String path) {
         mUpload.uploadFile(type, path);
     }
+
+    public void login() {
+        mUpload.login();
+    }
 }
