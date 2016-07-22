@@ -7,13 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.xiaochong.camera.CameraActivity;
 import com.xiaochong.camera.PhotoController;
 import com.xiaochong.camera.R;
-import com.xiaochong.camera.view.PromptTextView;
-import com.xiaochong.camera.view.ShutterButton;
+import com.xiaochong.camera.ui.view.PromptTextView;
+import com.xiaochong.camera.ui.view.ShutterButton;
 
 /**
  * Created by user on 6/7/16.

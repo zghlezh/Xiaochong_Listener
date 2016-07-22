@@ -1,4 +1,4 @@
-package com.xiaochong.camera.view;
+package com.xiaochong.camera.ui.view;
 
 import android.content.Context;
 import android.os.Handler;

@@ -6,9 +6,8 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
-import com.xiaochong.camera.util.HttpSender;
-import com.xiaochong.camera.util.UploadImpl;
-import com.xiaochong.camera.util.WorkCenter;
+import com.xiaochong.camera.util.net.TcpSender;
+import com.xiaochong.camera.WorkCenter;
 
 /**
  * Created by Administrator on 2016/6/4.
@@ -18,7 +17,7 @@ public class WorkService extends Service{
     public static final String ACTION = "com.xiaochong.WorkService";
     public HttpBinder mBinder;
     public WorkCenter mWorkCenter;
-    public HttpSender mSender;
+    public TcpSender mSender;
 
     public void setWorkCenter(WorkCenter workcenter) {
         this.mWorkCenter =  workcenter;
@@ -50,9 +49,9 @@ public class WorkService extends Service{
         return mBinder;
     }
 
-    public HttpSender getInstance(WorkCenter workCenter) {
+    public TcpSender getInstance(WorkCenter workCenter) {
         if (mSender == null) {
-            mSender = new HttpSender(workCenter);
+            mSender = new TcpSender(workCenter);
         }
         return mSender;
     }
@@ -73,7 +72,7 @@ public class WorkService extends Service{
 
         public void startConnection() {
             mSender = getInstance(mWorkCenter);
-            mSender.sendHttp();
+            mSender.sendTcp();
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.xiaochong.camera.util;
+package com.xiaochong.camera.util.net;
 
 import android.app.Activity;
 import android.os.Environment;
@@ -51,79 +51,14 @@ public class UploadImpl {
         return sdDir.toString();
     }
 
-//    public void uploadFile(Context mContext) {
-//        String path = getFilePath(mContext);
-//        File myFile = new File(path);
-//        RequestParams params = new RequestParams();
-//        try {
-//            InputStream instream = new FileInputStream(myFile);
-//            params.put("token", "f26bcdee-5293-4d8b-ad58-f6d2879dc1f8");
-//            //params.put("file", myFile);
-//            params.put("file", instream);
-//            AsyncHttpClient client = new AsyncHttpClient();
-//            client.post("http://115.28.202.110:8888/user/upload", params, new AsyncHttpResponseHandler() {
-//
-//                @Override
-//                public void onSuccess(int i, org.apache.http.Header[] headers, byte[] bytes) {
-//                    Log.i(TAG, "the httpcode is "+i +" and the header is "+
-//                            headers.toString()+" and the bytes is "+bytes.toString());
-//                }
-//
-//                @Override
-//                public void onFailure(int i, org.apache.http.Header[] headers, byte[] bytes, Throwable throwable) {
-//                    Log.i(TAG, "upload on Failure");
-//                }
-//            });
-//        } catch(Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-    public void login() {
-        Log.i(TAG, "===============start to login =====================");
-        RequestParams params = new RequestParams();
-        try {
-            params.put("userName", "ryan");
-            params.put("passwd", "123456");
-            AsyncHttpClient client = new AsyncHttpClient();
-            client.post("http://115.28.202.110:8888/login", params, new AsyncHttpResponseHandler() {
-
-                @Override
-                public void onSuccess(int i, org.apache.http.Header[] headers, byte[] bytes) {
-                    String bytesString = new String(bytes);
-                    Log.i(TAG, "the httpcode is "+i +" and the header is "+
-                            headers.toString()+" and the bytes is "+bytesString);
-                    Toast.makeText(mActivity, "login success", Toast.LENGTH_SHORT).show();
-                }
-
-                @Override
-                public void onFailure(int i, org.apache.http.Header[] headers, byte[] bytes, Throwable throwable) {
-                    String failString =  new String(bytes);
-                    if (headers != null){
-                        Log.i(TAG, "login on Failure header:"+ headers.toString());
-                    } else {
-                        Log.i(TAG, " headers is null ===================:");
-                    }
-                    if (bytes !=null) {
-                        Log.i(TAG, " byte string is "+failString);
-                    } else {
-                        Log.i(TAG, " byte is null ===================:");
-                    }
-                    Toast.makeText(mActivity, "login failed", Toast.LENGTH_SHORT).show();
-                }
-            });
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void uploadFile(int type, String path) {
+    public void uploadFile(int type, String path, String token) {
         Log.i(TAG, "===============start to upload type:"+ type +"=================");
         File myFile = new File(path);
         RequestParams params = new RequestParams();
         try {
             InputStream instream = new FileInputStream(myFile);
-            params.put("token", "f26bcdee-5293-4d8b-ad58-f6d2879dc1f8");
+            params.put("token", token);
+//            params.put("token", "f26bcdee-5293-4d8b-ad58-f6d2879dc1f8");
             //params.put("file", myFile);
             params.put("file", instream);
             params.put("fileType", type);

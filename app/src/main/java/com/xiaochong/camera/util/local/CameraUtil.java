@@ -1,4 +1,4 @@
-package com.xiaochong.camera.util;
+package com.xiaochong.camera.util.local;
 
 import android.Manifest;
 import android.annotation.TargetApi;

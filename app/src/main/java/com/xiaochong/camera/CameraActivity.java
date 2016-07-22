@@ -16,8 +16,8 @@ import android.widget.Toast;
 import com.xiaochong.camera.module.CameraModule;
 import com.xiaochong.camera.module.PhotoModule;
 import com.xiaochong.camera.module.VideoModule;
-import com.xiaochong.camera.util.CameraUtil;
-import com.xiaochong.camera.util.GetMediaImpl;
+import com.xiaochong.camera.util.local.CameraUtil;
+import com.xiaochong.camera.util.local.GetMediaImpl;
 
 public class CameraActivity extends Activity implements
         View.OnClickListener{

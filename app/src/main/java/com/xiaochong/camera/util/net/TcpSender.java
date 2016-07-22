@@ -1,7 +1,8 @@
-package com.xiaochong.camera.util;
+package com.xiaochong.camera.util.net;
 
 import android.util.Log;
 
+import com.xiaochong.camera.WorkCenter;
 import com.zebra.test.ConnectHandler;
 import com.zebra.test.Sender;
 
@@ -10,16 +11,16 @@ import java.util.logging.Level;
 /**
  * Created by user on 7/18/16.
  */
-public class HttpSender {
-    public static final String TAG = "HttpSender";
+public class TcpSender {
+    public static final String TAG = "TcpSender";
     public WorkCenter mWorkCenter;
 
-    public HttpSender(WorkCenter workCenter) {
+    public TcpSender(WorkCenter workCenter) {
         this.mWorkCenter = workCenter;
     }
 
-    public void sendHttp() {
-        Log.i(TAG, "start to sendHttp");
+    public void sendTcp() {
+        Log.i(TAG, "start to sendTcp");
         Sender sender = Sender.get();
         sender.setLoggerLevel(Level.FINEST);
         //sender.setDeviceId("5C7B080B4CA863AD2A42905465897381");

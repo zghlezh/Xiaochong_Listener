@@ -1,4 +1,4 @@
-package com.xiaochong.camera.util;
+package com.xiaochong.camera.util.local;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.xiaochong.camera.CameraActivity;
+import com.xiaochong.camera.WorkCenter;
 
 /**
  * Created by Administrator on 2016/6/14.

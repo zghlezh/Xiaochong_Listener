@@ -11,7 +11,6 @@ import android.util.Log;
 
 import com.xiaochong.camera.service.WorkService;
 import com.xiaochong.camera.service.WorkService.HttpBinder;
-import com.xiaochong.camera.util.WorkCenter;
 
 
 public class ControlActivity extends Activity {

@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top|left"
             android:orientation="vertical">
-                <com.xiaochong.camera.view.PromptTextView
+                <com.xiaochong.camera.ui.view.PromptTextView
                     android:id="@+id/text_prompt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
            android:src="@drawable/btn_pause_recording"
         />
 
-        <com.xiaochong.camera.view.ShutterButton
+        <com.xiaochong.camera.ui.view.ShutterButton
             android:id="@+id/shutter_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

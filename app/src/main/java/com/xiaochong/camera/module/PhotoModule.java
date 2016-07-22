@@ -18,9 +18,9 @@ import android.view.WindowManager;
 import com.xiaochong.camera.CameraActivity;
 import com.xiaochong.camera.PhotoController;
 import com.xiaochong.camera.ui.PhotoUI;
-import com.xiaochong.camera.util.CameraUtil;
-import com.xiaochong.camera.util.GetMediaImpl;
-import com.xiaochong.camera.view.ShutterButton;
+import com.xiaochong.camera.util.local.CameraUtil;
+import com.xiaochong.camera.util.local.GetMediaImpl;
+import com.xiaochong.camera.ui.view.ShutterButton;
 
 import java.io.IOException;
 import java.util.List;

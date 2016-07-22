@@ -1,4 +1,4 @@
-package com.xiaochong.camera.util;
+package com.xiaochong.camera.util.net;
 
 import java.io.File;
 

@@ -1,6 +1,6 @@
 package com.xiaochong.camera;
 
-import com.xiaochong.camera.view.ShutterButton;
+import com.xiaochong.camera.ui.view.ShutterButton;
 
 /**
  * Created by user on 6/8/16.
