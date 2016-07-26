@@ -25,6 +25,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:design:23.4.0'
     compile files('src/libs/g-sdk.jar')
+    compile files('src/libs/fastJson.jar')
     compile files('src/libs/android-async-http-1.4.8.jar')
     compile files('src/libs/httpcore-4.4.5.jar')
 }

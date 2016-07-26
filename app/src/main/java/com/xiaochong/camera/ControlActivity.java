@@ -26,8 +26,8 @@ public class ControlActivity extends Activity {
             HttpBinder binder = (HttpBinder) service;
             mWorkService = binder.getService();
             mWorkService.setWorkCenter(mWorkCenter);
-            binder.startConnection();
-//            mWorkService.startLogin();
+//            binder.startConnection();
+            mWorkService.startLogin();
         }
         public void onServiceDisconnected(ComponentName name) {
             Log.i(TAG, "onServiceDisconnected");

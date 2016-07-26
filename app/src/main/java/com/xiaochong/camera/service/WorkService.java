@@ -6,7 +6,6 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
-import com.xiaochong.camera.util.net.TcpSender;
 import com.xiaochong.camera.WorkCenter;
 
 /**
@@ -17,7 +16,6 @@ public class WorkService extends Service{
     public static final String ACTION = "com.xiaochong.WorkService";
     public HttpBinder mBinder;
     public WorkCenter mWorkCenter;
-    public TcpSender mSender;
 
     public void setWorkCenter(WorkCenter workcenter) {
         this.mWorkCenter =  workcenter;
@@ -49,13 +47,6 @@ public class WorkService extends Service{
         return mBinder;
     }
 
-    public TcpSender getInstance(WorkCenter workCenter) {
-        if (mSender == null) {
-            mSender = new TcpSender(workCenter);
-        }
-        return mSender;
-    }
-
     public void startLogin() {
         if (mWorkCenter != null) {
             Log.i("qinghao", "==============workservice startLogin==============");
@@ -68,11 +59,6 @@ public class WorkService extends Service{
         public WorkService getService() {
             Log.i(TAG, "WorkService get service");
             return WorkService.this;
-        }
-
-        public void startConnection() {
-            mSender = getInstance(mWorkCenter);
-            mSender.sendTcp();
         }
     }
 }

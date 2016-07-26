@@ -1,16 +1,14 @@
 package com.xiaochong.camera.util.net;
 
 import android.app.Activity;
-import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.xiaochong.camera.WorkCenter;
-
-import org.json.JSONObject;
 
 /**
  * Created by user on 7/22/16.
@@ -41,11 +39,12 @@ public class LoginImpl implements ILogin {
                     Log.i(TAG, "the httpcode is "+i +" and the header is "+
                             headers.toString()+" and the bytes is "+bytesString);
                     Toast.makeText(mActivity, "login success", Toast.LENGTH_SHORT).show();
-//                    JSONObject obj = JSONObject.parseObject(bytesString);
-//                    JSONObject data = obj.getJSONObject("data");
-//                    final String token = data.getString("token");
-                    String token = "";
+                    JSONObject obj = JSONObject.parseObject(bytesString);
+                    JSONObject data = obj.getJSONObject("data");
+                    final String token = data.getString("token");
+                    Log.i(TAG, " startLogin token is  ===================:"+token);
                     mWorkCenter.setToken(token);
+                    mWorkCenter.startTcp();
                 }
 
                 @Override
