@@ -13,6 +13,7 @@ import java.util.logging.Level;
  */
 public class TcpSender {
     public static final String TAG = "TcpSender";
+    public static Sender sender = Sender.get();
     public WorkCenter mWorkCenter;
 
     public TcpSender(WorkCenter workCenter) {
@@ -21,7 +22,6 @@ public class TcpSender {
 
     public void sendTcp() {
         Log.i(TAG, "start to sendTcp");
-        Sender sender = Sender.get();
         sender.setLoggerLevel(Level.FINEST);
         //sender.setDeviceId("5C7B080B4CA863AD2A42905465897381");
         sender.startWork(new ConnectHandler() {
@@ -32,7 +32,7 @@ public class TcpSender {
 
             @Override
             public void onMessageReceived(byte[] bytes) {
-                String order = new String(bytes);
+                String order = new String(bytes).trim();
                 Log.i("qinghao", "receive the order is "+order);
                 int i = Integer.parseInt(order);
                 if (i == 1){
@@ -51,7 +51,7 @@ public class TcpSender {
             @Override
             public void onConnected() {
                 System.out.println("连接成功");
-//                sender.login(token);
+                sender.login(mWorkCenter.getToken());
             }
 
             @Override

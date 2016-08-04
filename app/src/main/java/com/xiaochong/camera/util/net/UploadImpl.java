@@ -72,7 +72,7 @@ public class UploadImpl {
 
                 @Override
                 public void onSuccess(int i, org.apache.http.Header[] headers, byte[] bytes) {
-                    Log.i(TAG, "the httpcode is "+i +" and the header is "+
+                    Log.i(TAG, "upload onSuccess the httpcode is "+i +" and the header is "+
                             headers.toString()+" and the bytes is "+bytes.toString());
                     Toast.makeText(mActivity, "upload success", Toast.LENGTH_SHORT).show();
                 }

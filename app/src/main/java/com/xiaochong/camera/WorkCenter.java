@@ -19,6 +19,11 @@ public class WorkCenter {
     public UploadImpl mUpload;
     public Activity mActivity;
     public LoginImpl mLogin;
+
+    public String getToken() {
+        return mToken;
+    }
+
     public String mToken;
     public TcpSender mSender;
 
